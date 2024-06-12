@@ -1,0 +1,109 @@
+.titleBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
+
+.searchBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.searchInputBox{
+    width: 70%;
+    height: 15%;
+    border: 2px solid gray;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 7px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.cardBox{
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    );
+    width: 70%;
+    gap: 15px;
+}
+
+.imageComic{
+    width: 100%;
+    height: 360px;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.containCharacter{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.infoCharacter{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    place-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 15%;
+    border-radius: 0 0 6px 6px;
+    transition: 0.5s;
+}
+
+.nameCharacter{
+    font-weight: bold;
+    font-size: 25px;
+    font-family: "Courier New", Courier, monospace;
+    color: white;
+    transition: 0.5s;
+}
+
+.descriptionCharacter{
+    font-size: 17px;
+    font-family: "Courier New", Courier, monospace;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.boldDescription{
+    font-weight: bold;
+}
+
+.containCharacter:hover .nameCharacter{
+    cursor: pointer;
+}
+
+.containCharacter:hover .infoCharacter{
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.5s;
+    border-radius: 6px;
+}
+
+.containCharacter:hover .descriptionCharacter{
+    visibility: visible;
+    opacity: 1;
+}
+
+.containCharacter:hover .imageComic{
+    transform: scale(1.03);
+}
+

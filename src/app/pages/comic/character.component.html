@@ -1,0 +1,35 @@
+<!-- Title Page -->
+<title>Comic Store</title>
+
+<!-- Title -->
+<div class="titleBox">
+  <h1 class="title">Comic Store!</h1>
+</div>
+
+<!-- Search Box -->
+<div class="searchBox">
+  <input type="search" class="searchInputBox" placeholder="Search comics... " />
+</div>
+
+<hr />
+
+<!-- Box for comics -->
+
+<div class="container">
+  <div class="cardBox">
+    @for (item of character; track $index) {
+    <div class="containCharacter">
+      <img class="imageComic" [src]="getImageUrl(item)" />
+      <div class="infoCharacter">
+        <h1 class="nameCharacter">{{ item.name }}</h1>
+        <p class="descriptionCharacter">
+          <span class="boldDescription">Description: </span
+          >{{ insertDescription(item) }}
+        </p>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<button (click)="getAllCharacters()">Click Here!!!</button>
