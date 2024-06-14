@@ -6,13 +6,10 @@ import { Component, OnInit } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './character.component.html',
-  styleUrl: './character.component.scss'
+  styleUrl: './character.component.scss',
 })
-export class CharacterComponent implements OnInit{
-
-  constructor(
-    private characterService: CharacterService
-  ){}
+export class CharacterComponent implements OnInit {
+  constructor(private characterService: CharacterService) {}
 
   // Variables:
   character = new Array<any>();
@@ -21,9 +18,8 @@ export class CharacterComponent implements OnInit{
    * This method is called when the component is initialized
    */
 
-  ngOnInit(){
-
-    this.characterService.getAllCharacters(8,0).subscribe((data) => {
+  ngOnInit() {
+    this.characterService.getAllCharacters(8, 0).subscribe((data) => {
       this.character = data;
     });
   }
@@ -32,8 +28,8 @@ export class CharacterComponent implements OnInit{
    * This method calls the service to get all comics
    */
 
-  getAllCharacters(){
-    this.characterService.getAllCharacters(10,0).subscribe((data) => {
+  getAllCharacters() {
+    this.characterService.getAllCharacters(10, 0).subscribe((data) => {
       console.log(data);
     });
   }
@@ -44,21 +40,34 @@ export class CharacterComponent implements OnInit{
    * @returns image url
    */
 
-  getImageUrl(characterObject: any){
-    return characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension;
+  getImageUrl(characterObject: any) {
+    return (
+      characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension
+    );
   }
 
   /**
-   * This method get the description 
-   * @param characterObject 
+   * This method get the description
+   * @param characterObject
    */
-  insertDescription(characterObject: any){
-    if(characterObject.description == ""){
-      return "No description available";
-  }
-    return characterObject.description;
+  insertDescription(characterObject: any) {
+    if (characterObject.description == '') {
+      return 'No description available';
+    }
+
+    let splitDescription = characterObject.description.split(/\s+/);
+    let newDescripction = splitDescription.slice(0, 20).join(" ");
+
+    return  newDescripction + (splitDescription.length > 20 ? "..." : "");;
   }
 
+  /**
+   * This method get the name of the character
+   * @param characterObject
+   */
+  insertName(characterObject: any) {
+    // We use regular expression to remove parentheses
+    characterObject.name = characterObject.name.replace(/\s*\(.*?\)$/, '');
+    return characterObject.name;
+  }
 }
-
-

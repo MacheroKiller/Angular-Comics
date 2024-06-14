@@ -2,9 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
     margin-bottom: 20px;
     border: 1px solid black;
+}
+
+.title{
+    color: white;
 }
 
 .searchBox{
@@ -43,8 +46,8 @@
 .imageComic{
     width: 100%;
     height: 360px;
-    border-radius: 6px;
     transition: 0.5s;
+    border-radius: 6px;
 }
 
 .containCharacter{

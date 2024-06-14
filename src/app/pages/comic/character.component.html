@@ -8,7 +8,7 @@
 
 <!-- Search Box -->
 <div class="searchBox">
-  <input type="search" class="searchInputBox" placeholder="Search comics... " />
+  <input type="search" class="searchInputBox" placeholder="Search character... " />
 </div>
 
 <hr />
@@ -21,7 +21,7 @@
     <div class="containCharacter">
       <img class="imageComic" [src]="getImageUrl(item)" />
       <div class="infoCharacter">
-        <h1 class="nameCharacter">{{ item.name }}</h1>
+        <h1 class="nameCharacter">{{ insertName(item) }}</h1>
         <p class="descriptionCharacter">
           <span class="boldDescription">Description: </span
           >{{ insertDescription(item) }}

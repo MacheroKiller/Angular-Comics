@@ -1,5 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
 body{
     font-family: "Courier New", Courier, monospace;
-    background: whitesmoke;
+    background: linear-gradient(45deg, #2e017a, #500d55, #0d4a55, #1f0440);
+    animation: color 12s ease-in-out infinite;
+    background-size: 300% 300%;
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes color{
+    0%{
+        background-position: 0 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0 50%;
+    }
+    
 }
