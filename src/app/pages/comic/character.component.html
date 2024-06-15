@@ -1,6 +1,12 @@
 <!-- Title Page -->
 <title>Comic Store</title>
 
+<!-- CSS -->
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+/>
+
 <!-- Title -->
 <div class="titleBox">
   <h1 class="title">Comic Store!</h1>
@@ -8,16 +14,23 @@
 
 <!-- Search Box -->
 <div class="searchBox">
-  <input type="search" class="searchInputBox" placeholder="Search character... " />
+  <div class="containerSearchBox">
+    <span class="searchIcon material-symbols-outlined">search</span>
+    <input
+      (input)="searchCharacter($event)"
+      maxlength="30"
+      type="search"
+      class="searchInputBox"
+      placeholder="Search character... "
+    />
+  </div>
 </div>
-
-<hr />
 
 <!-- Box for comics -->
 
 <div class="container">
   <div class="cardBox">
-    @for (item of character; track $index) {
+    @for (item of copyCharacter; track $index) {
     <div class="containCharacter">
       <img class="imageComic" [src]="getImageUrl(item)" />
       <div class="infoCharacter">

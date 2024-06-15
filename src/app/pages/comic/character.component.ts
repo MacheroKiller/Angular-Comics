@@ -12,15 +12,17 @@ export class CharacterComponent implements OnInit {
   constructor(private characterService: CharacterService) {}
 
   // Variables:
-  character = new Array<any>();
+  character: any[] = [];
+  copyCharacter: any[] = [];
 
   /**
    * This method is called when the component is initialized
    */
 
   ngOnInit() {
-    this.characterService.getAllCharacters(8, 0).subscribe((data) => {
+    this.characterService.getAllCharacters(10, 0).subscribe((data) => {
       this.character = data;
+      this.copyCharacter = data;
     });
   }
 
@@ -56,9 +58,9 @@ export class CharacterComponent implements OnInit {
     }
 
     let splitDescription = characterObject.description.split(/\s+/);
-    let newDescripction = splitDescription.slice(0, 20).join(" ");
+    let newDescripction = splitDescription.slice(0, 20).join(' ');
 
-    return  newDescripction + (splitDescription.length > 20 ? "..." : "");;
+    return newDescripction + (splitDescription.length > 20 ? '...' : '');
   }
 
   /**
@@ -69,5 +71,13 @@ export class CharacterComponent implements OnInit {
     // We use regular expression to remove parentheses
     characterObject.name = characterObject.name.replace(/\s*\(.*?\)$/, '');
     return characterObject.name;
+  }
+
+  searchCharacter(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    const searchValue = inputElement.value.toLowerCase().trim();
+    this.copyCharacter = this.character.filter((character) =>
+      character.name.toLowerCase().includes(searchValue)
+    );
   }
 }

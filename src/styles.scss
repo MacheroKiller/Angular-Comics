@@ -1,12 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
-body{
+html{
     font-family: "Courier New", Courier, monospace;
     background: linear-gradient(45deg, #2e017a, #500d55, #0d4a55, #1f0440);
     animation: color 12s ease-in-out infinite;
     background-size: 300% 300%;
     padding: 0;
     margin: 0;
+}
+
+body{
+    min-height: 100vh;
 }
 
 @keyframes color{
